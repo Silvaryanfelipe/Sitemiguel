@@ -1,0 +1,96 @@
+main {
+  background-color: #1397D5;
+}
+
+.carouselContainer {
+  max-width: 70%;
+  /* Largura máxima do contêiner do carrossel */
+  margin: 2% auto 0;
+}
+
+.maisvendidos {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titulo-secao {
+  display: flex;
+  margin: 2% 0;
+  width: 100%;
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #365A98;
+  color: white;
+  text-align: center;
+  border-color: #023b55 2px;
+}
+
+.card {
+  border-color: black;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.estilo-botao {
+  background-color: #365A98 !important;
+  /* Cor de fundo do botão */
+  border-color: #365A98 !important;
+  /* Cor da borda do botão */
+}
+
+.estilo-botao a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.estilo-botao:hover {
+  background-color: #2980b9 !important;
+  /* Cor de fundo do botão ao passar o mouse */
+  border-color: #2980b9 !important;
+  /* Cor da borda do botão ao passar o mouse */
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* Distribui os elementos horizontalmente com espaço entre eles */
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  /* Ocupa todo o espaço disponível */
+  background-color: #365A98;
+  color: #fff;
+  padding: 2%;
+  border-bottom: #fff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 22%;
+  /* Largura do bloco da barra lateral */
+  color: #fff;
+  background-color: #365A98;
+  padding: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

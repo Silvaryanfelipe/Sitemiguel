@@ -1,0 +1,126 @@
+body {
+    background-color: #1397D5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #1397D5;
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
+}
+
+.container_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #023b55;
+    border-radius: 10px;
+    margin: 11.2%;
+}
+
+.formulario {
+    margin: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divForm {
+    width: 100%;
+    justify-content: start;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+label {
+    flex-direction: row;
+    display: flex;
+    width: 50%;
+    text-align: start;
+    width: 50%;
+    color: white;
+}
+
+input {
+    width: 50%;
+    border-radius: 10px;
+    font-size: 22px;
+    color: #023b55;
+
+}
+
+.btnImage {
+    margin-left: 10%;
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: #1397D5;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnImage:hover {
+    transition: 0.3s;
+    color: white;
+    background-color: #75c5eb;
+}
+
+
+.imagem-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-form {
+    margin-top: 10px;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+}
+
+
+.botaoSalvar {
+    width: 40%;
+    height: 3%;
+    border-radius: 10px;
+    text-decoration: none;
+
+    background-color: #1397D5;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.botaoSalvar:hover {
+    transition: 0.3s;
+    color: white;
+    background-color: #75c5eb;
+}
+
+.cadastro a {
+    text-decoration: none;
+    /* Remove a linha (underline) do link */
+    color: black;
+    /* Define a cor do texto como preto */
+}
