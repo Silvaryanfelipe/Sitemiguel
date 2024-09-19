@@ -48,6 +48,27 @@ function atualizarLivroLocalStorage(livro) {
     console.log(livros);
 }
 
+function excluirLivro() {
+    if(confirm("Tem certeza que deseja excluir o livro?")) {
+        var livros = JSON.parse(localStorage.getItem('books')) || [];
+        var idLivro = parseInt(new URLSearchParams(window.location.search).get('id'));
+
+        var indiceLivro = livros.findIndex(book => book.id === idLivro);
+
+
+        if (indiceLivro !== -1) {
+            livros.splice(indiceLivro, 1);
+
+            localStorage.setItem('books', JSON.stringify(livros));
+
+            alert("Livro excluido com sucesso");
+        } else {
+            alert("Não foi possível excluir o livro");
+        }
+        window.location.href = "../html/index.html"
+    }
+
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     var parametros = new URLSearchParams(window.location.search);
