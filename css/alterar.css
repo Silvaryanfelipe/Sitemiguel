@@ -19,15 +19,14 @@ main {
     flex-grow: 1;
 }
 
-.excluir-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 100%;
-    padding-right: 20px;
+.container {
     margin-top: 10px;
-  }
+}
+
+.container img {
+   height: 30px;
+   cursor: pointer;
+}
 
 .container_form {
     display: flex;
@@ -36,7 +35,7 @@ main {
     background-color: #023b55;
     border-radius: 10px;
     margin: 11.2%;
-}
+}  
 
 .formulario {
     margin: 8%;
