@@ -1,90 +1,29 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+       body, html {
+        background-color: aquamarine;
+       }
+       
+       .login-container {
+           width: 100%;
+           max-width: 400px;
+           margin: 0 auto;
+           margin-top: 100px;
+           padding: 30px;
+           border-radius: 8px;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+           background-color: #f8f9fa;
+       }
 
-footer {
-    flex-shrink: 0;
-}
+       .login-form {
+           width: 100%;
+           max-width: 400px;
+           padding: 30px;
+           background: #ffffff;
+           border-radius: 8px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
 
-.main {
-    width: 100%;
-    height: auto;
-    background-color: #1397D5;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.search-container {
-    position: relative;
-    display: inline-block;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 20px;
-    margin-top: 15px;
-  }
-  
-  .search-container .form-control {
-    width: 100%; /* Ajusta o input para ocupar a largura total do container */
-    padding-right: 40px; /* Ajusta o padding para dar espaço ao ícone */
-    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos na largura total do input */
-}
-
-.search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    cursor: pointer;
-}
-
-  #searchInput {
-    max-width: 600px;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-
-.cardsContainer {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.imagemCard {
-    width: 40%;
-    height: auto;
-}
-
-.cards {
-    border-radius: 10px;
-    width: 15%;
-    height: 30%;
-    background-color: #023b55;
-    margin-top: 20px;
-    color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.data {
-    margin-right: 5px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
+       .logo {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+       }

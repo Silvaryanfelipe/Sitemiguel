@@ -1,0 +1,6 @@
+24/10/2024
+
+1°: ALTERAÇÃO DO NOME DO ARQUIVO INDEX: A tela de login se tornará a nova index, então o index atual se tornará a "inicial.html", isso vale para todos os arquivos dependentes (css, js, etc...);
+
+2º ESTRUTURAÇÃO DA TELA DE LOGIN: Crição da estrutura HTML da página de Login;
+
