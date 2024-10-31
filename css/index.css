@@ -1,16 +1,15 @@
-
-h3 {
-    color: aliceblue;
-}
 body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #3A6ABE;
 }
 
 .login-container {
     width: 100%;
     max-width: 400px;
-    margin: 0 auto;
-    margin-top: 30px;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -20,15 +19,14 @@ body, html {
 
 .login-form {
     width: 100%;
-    max-width: 400px;
-    padding: 30px;
+    padding: 20px;
     background: #466293;
     border-radius: 8px;
 }
 
 .logo {
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 20px;
 }
 
 .campos {
@@ -38,4 +36,8 @@ body, html {
 .cadastro-login {
     color: aliceblue;
     cursor: pointer;
+}
+
+h3 {
+    color: aliceblue;
 }
