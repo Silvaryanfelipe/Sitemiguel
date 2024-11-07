@@ -1,14 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    var booksJSON = localStorage.getItem('books');
-    if (booksJSON) {
-        var books = JSON.parse(booksJSON);
-        renderizarLivrosHome(books);
+    const loggedUser = localStorage.getItem("loggedUser");
+    if (!loggedUser) {
+        alert("Você precisa estar logado para acessar esta página.")
+        window.location.href = "../html/index.html";
+        return;
+    }
+
+const user = JSON.parse(localStorage.getItem (loggedUser));
+if (user && user.books) {
+    console.log("entrou")
+    renderizarLivrosHome(user.books);
 
         // Adiciona o evento de input para o campo de pesquisa
         document.getElementById('searchInput').addEventListener('input', function () {
             var searchTerm = this.value.toLowerCase();
-            var filteredBooks = books.filter(function (livro) {
+            var filteredBooks = user.books.filter(function (livro) {
                 return livro.titulo.toLowerCase().includes(searchTerm) || 
                        livro.autor.toLowerCase().includes(searchTerm) || 
                        livro.ano.toLowerCase().includes(searchTerm);

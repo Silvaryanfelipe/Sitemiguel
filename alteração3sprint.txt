@@ -4,3 +4,10 @@
 
 2º ESTRUTURAÇÃO DA TELA DE LOGIN: Crição da estrutura HTML da página de Login;
 
+31/10/2021
+
+1º: JS DA TELA DE LOGIN E DE CADASTRO
+
+04/11/2024
+
+1º Inicio do JS na tela inicial, criação de uma "sessão" para o usuário ver os cards apenas dele;

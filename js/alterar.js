@@ -65,7 +65,7 @@ function excluirLivro() {
         } else {
             alert("Não foi possível excluir o livro");
         }
-        window.location.href = "../html/index.html"
+        window.location.href = "../html/inicial.html"
     }
 
 }

@@ -1,3 +1,10 @@
+const loggedUser = localStorage.getItem("loggedUser");
+if (!loggedUser) {
+    alert("Você precisa estar logado para acessar esta página.")
+    window.location.href = "../html/index.html";
+}
+
+
 function openFileInput() {
     document.getElementById("escolherImagem").click();
 }
@@ -47,17 +54,14 @@ async function cadastrarLivro() {
 
     var imagem = await obterImagem();
 
-    var id = localStorage.getItem("livroId");
-   
-    if(!id){
-        id = 1;
-    } else {
-        id = parseInt(id) + 1;
-    }
+   const user = JSON.parse(localStorage.getItem(loggedUser));
 
-    localStorage.setItem("livroId", id);
+   let id = 1;
+   if (user.books.length) {
+     id = user.books[user.books.length - 1].id + 1;
+   }
 
-    var livro = {
+    const livro = {
         id: id,
         titulo: titulo,
         autor: autor,
@@ -65,8 +69,10 @@ async function cadastrarLivro() {
         imagem: imagem
     };
 
-    console.log(livro)
-    adicionarLivroLocalStorage(livro)
+    user.books.push(livro)
+    
+    localStorage.setItem(loggedUser, JSON.stringify(user));
+    window.location.href = "../html/inicial.html"
 }
 
 function adicionarLivroLocalStorage(livro) {
