@@ -2,7 +2,7 @@ function openFileInput() {
     document.getElementById("escolherImagem").click();
 }
 
-window.preview = function(event) {
+window.preview = function (event) {
     var input = event.target;
     var reader = new FileReader();
     reader.onload = function () {
@@ -14,7 +14,7 @@ window.preview = function(event) {
 
 
 
-window.obterImagem = function() {
+window.obterImagem = function () {
     return new Promise((resolve, reject) => {
         var fileInput = document.getElementById('escolherImagem');
         var imagem;
@@ -33,53 +33,66 @@ window.obterImagem = function() {
     });
 }
 
-function atualizarLivroLocalStorage(livro) {
-    var livros = JSON.parse(localStorage.getItem('books')) ||[];
-    var indiceLivroExistente = livros.findIndex(c => c.id === livro.id);
+function atualizarLivroLocalStorage(email, livro) {
+    const user = JSON.parse(localStorage.getItem(email));
 
-    if (indiceLivroExistente !== -1) {
-        livros[indiceLivroExistente] = livro;
-        console.log("Livro Atualizado com sucesso.");
-    } else {
-        console.error("Erro ao atualizar o livro. Não foi encontrado");
+    if (user && user.books) {
+        const indiceLivroExistente = user.books.findIndex(c => c.id === livro.id);
+
+        if (indiceLivroExistente !== -1) {
+            user.books[indiceLivroExistente] = livro;
+            localStorage.setItem(email, JSON.stringify(user));
+            console.log("Livro atualizado com sucesso");
+        } else {
+            console.error("Erro ao atualizar o Livro. Livra nao encntrado");
+        }
     }
-
-    localStorage.setItem('books', JSON.stringify(livros));
-    console.log(livros);
 }
 
 function excluirLivro() {
-    if(confirm("Tem certeza que deseja excluir o livro?")) {
-        var livros = JSON.parse(localStorage.getItem('books')) || [];
-        var idLivro = parseInt(new URLSearchParams(window.location.search).get('id'));
+    
+    if (confirm("Tem certeza que deseja excluir o livro?")) {
+        const loggedUser = localStorage.getItem('loggedUser');
+        const user = JSON.parse(localStorage.getItem(loggedUser));
+        const idLivro = parseInt(new URLSearchParams(window.location.search).get('id'));
 
-        var indiceLivro = livros.findIndex(book => book.id === idLivro);
 
+        if (user && user.books) {
+            var indiceLivro = user.books.findIndex(book => book.id === idLivro);
+            console.log("entrou")
 
-        if (indiceLivro !== -1) {
-            livros.splice(indiceLivro, 1);
+            if (indiceLivro !== -1) {
+                user.books.splice(indiceLivro, 1);
 
-            localStorage.setItem('books', JSON.stringify(livros));
+                localStorage.setItem(loggedUser, JSON.stringify(user));
 
-            alert("Livro excluido com sucesso");
-        } else {
-            alert("Não foi possível excluir o livro");
+                alert("Livro excluido com sucesso");
+            } else {
+                alert("Não foi possível excluir o livro");
+            }
+           window.location.href = "../html/inicial.html"
         }
-        window.location.href = "../html/inicial.html"
     }
 
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var parametros = new URLSearchParams(window.location.search);
-    var idLivro = parametros.get('id');
+    const loggedUser = localStorage.getItem('loggedUser')
+    if (!loggedUser) {
+        alert("Você precisa estar logado para acessar esta página.")
+        window.location.href = "../html/login.html";
+        return;
+    }
 
-    var livrosJSON = localStorage.getItem('books');
-    if (livrosJSON) {
-        var livros = JSON.parse(livrosJSON);
-        var indiceLivroSelecionado = livros.findIndex(book => book.id === parseInt(idLivro));
+    const user = JSON.parse(localStorage.getItem(loggedUser));
+    const parametros = new URLSearchParams(window.location.search);
+    const idLivro = parseInt(parametros.get('id'));
+
+    if (user && user.books) {
+        const indiceLivroSelecionado = user.books.findIndex(book => book.id === idLivro);
+
         if (indiceLivroSelecionado !== -1) {
-            var livroSelecionado = livros[indiceLivroSelecionado];
+            const livroSelecionado = user.books[indiceLivroSelecionado];
             document.getElementById("titulo").value = livroSelecionado.titulo;
             document.getElementById("autor").value = livroSelecionado.autor;
             document.getElementById("ano").value = livroSelecionado.ano;
@@ -91,25 +104,25 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Nenhum carro encontrado no localStorage.");
     }
 
-async function salvarAlteracoesLivro() {
-    var titulo = document.getElementById("titulo").value;
+    async function salvarAlteracoesLivro() {
+        var titulo = document.getElementById("titulo").value;
 
-    var autor = document.getElementById("autor").value;
+        var autor = document.getElementById("autor").value;
 
-    var ano = document.getElementById("ano").value;
+        var ano = document.getElementById("ano").value;
 
-    var imagem = await obterImagem();
+        var imagem = await obterImagem();
 
-    var livroAtualizado = {
-        id: parseInt(idLivro),
-        titulo: titulo,
-        autor: autor,
-        ano: ano,
-        imagem: imagem
-    };
+        var livroAtualizado = {
+            id: idLivro,
+            titulo: titulo,
+            autor: autor,
+            ano: ano,
+            imagem: imagem
+        };
 
-    atualizarLivroLocalStorage(livroAtualizado);
-}
+        atualizarLivroLocalStorage(loggedUser, livroAtualizado);
+    }
 
 
     document.getElementById("salvarCard").addEventListener("click", salvarAlteracoesLivro)

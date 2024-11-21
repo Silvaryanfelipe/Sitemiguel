@@ -33,6 +33,11 @@ if (user && user.books) {
 
 });
 
+document.getElementById("logoutBtt").addEventListener("click", function () {
+    localStorage.removeItem("loggedUser");
+    window.location.href = "../html/index.html";
+})
+
 function renderizarLivrosHome(books) {
     var cardsContainer = document.getElementById('cardsContainer');
     cardsContainer.innerHTML = '';
